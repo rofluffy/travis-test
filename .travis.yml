@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.6"
+dist: trusty
+# install:
+#   - pip install -r requirements.txt
+script:
+  - name: "I want a name"
+    # Collect the set of file modified as part of this build
+  - echo $TRAVIS_COMMIT_RANGE
+  - export MODIFIED_FILES=$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)
+  - echo $MODIFIED_FILES
+    # dataapi tests need to run first to ensure the parser working correctly before everything else
+  # - cd ${TRAVIS_BUILD_DIR}/dataapi/python; ./run_tests.sh
+  # - cd ${TRAVIS_BUILD_DIR}; ./run_tests.sh
