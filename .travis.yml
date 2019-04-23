@@ -6,8 +6,8 @@ dist: trusty
 #   - pip install -r requirements.txt
 jobs:
   include:
-    stage: "I want a name"
-      - script:
+    - stage: "I want a name"
+      script:
           # Collect the set of file modified as part of this build
         - echo $TRAVIS_COMMIT_RANGE
         - export MODIFIED_FILES=$(git --no-pager diff --name-only $TRAVIS_COMMIT_RANGE)
@@ -15,6 +15,6 @@ jobs:
           # dataapi tests need to run first to ensure the parser working correctly before everything else
         # - cd ${TRAVIS_BUILD_DIR}/dataapi/python; ./run_tests.sh
         # - cd ${TRAVIS_BUILD_DIR}; ./run_tests.sh
-    stage: "Deploy stage test"
-      - script:
+    - stage: "Deploy stage test"
+      script:
         - echo "something to print..."
